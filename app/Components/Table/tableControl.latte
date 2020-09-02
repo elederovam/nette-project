@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Email</th>
+        <th>Jméno</th>
+        <th>Příjmení</th>
+        <th>Obrázek</th>
+    </tr>
+    <tr n:foreach="$data as $row">
+        <td>{$row['id']}</td>
+        <td>{$row['email']}</td>
+        <td>{$row['first_name']}</td>
+        <td>{$row['last_name']}</td>
+        <td><img src="{$row['avatar']}"></td>
+    </tr>
+</table>

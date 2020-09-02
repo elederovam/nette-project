@@ -20,6 +20,8 @@ di:
 services:
     authenticator: App\Service\Security\Authenticator
     router: App\Router\RouterFactory::createRouter
+    - App\Components\Table\ITableControlFactory
     - App\Facade\UserFacade
+    - App\Facade\TableFacade
     - App\Forms\Login\ILoginFormControlFactory
     - App\Forms\Logout\ILogoutFormControlFactory

@@ -2,6 +2,9 @@
 
 namespace App\Presenters;
 
+use App\Components\Table\ITableControlFactory;
+use App\Components\Table\TableControl;
+use App\Facade\ITableFacade;
 use App\Forms\Logout\ILogoutFormControlFactory;
 use App\Forms\Logout\LogoutFormControl;
 use Nette;
@@ -15,6 +18,23 @@ final class TablePresenter extends Nette\Application\UI\Presenter
     public $logoutFormControlFactory;
 
     /**
+     * @var ITableControlFactory
+     * @inject
+     */
+    public $tableControlFactory;
+
+    /**
+     * @var ITableFacade
+     * @inject
+     */
+    public $tableFacade;
+
+    /**
+     * @var array[]
+     */
+    private $data;
+
+    /**
      * @throws Nette\Application\AbortException
      */
     public function startup(): void
@@ -26,6 +46,11 @@ final class TablePresenter extends Nette\Application\UI\Presenter
         }
     }
 
+    public function actionDefault()
+    {
+        $this->data = $this->tableFacade->getTableData();
+    }
+
     public function createComponentLogoutFormControl(): LogoutFormControl
     {
         $logoutFormControl = $this->logoutFormControlFactory->create();
@@ -34,5 +59,10 @@ final class TablePresenter extends Nette\Application\UI\Presenter
         };
 
         return $logoutFormControl;
+    }
+
+    public function createComponentTableControl(): TableControl
+    {
+        return $this->tableControlFactory->create($this->data);
     }
 }
