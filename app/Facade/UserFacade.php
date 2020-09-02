@@ -21,11 +21,21 @@ class UserFacade implements IUserFacade
     }
 
     /**
+     * Log in.
+     *
      * @param string $password
      * @throws AuthenticationException
      */
     public function login(string $password): void
     {
         $this->user->login($password);
+    }
+
+    /**
+     * Log out.
+     */
+    public function logout(): void
+    {
+        $this->user->logout();
     }
 }

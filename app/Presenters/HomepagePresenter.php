@@ -1,11 +1,9 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Presenters;
 
-use App\Forms\ILoginFormControlFactory;
-use App\Forms\LoginFormControl;
+use App\Forms\Login\ILoginFormControlFactory;
+use App\Forms\Login\LoginFormControl;
 use Nette;
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter
