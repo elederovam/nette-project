@@ -38,7 +38,7 @@ class LoginFormControl extends Control
     {
         $form = new Form();
 
-        $form->addText(self::PASSWORD_NAME, 'Heslo')
+        $form->addPassword(self::PASSWORD_NAME, 'Heslo')
             ->setRequired();
 
         $form->addSubmit('submit', 'Přihlásit se');
